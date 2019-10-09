@@ -1,0 +1,19 @@
+
+<ul class="list-group">
+    <li *ngFor="let student of students; let i = index" class="list-group-item">
+      <!--  Usage of <ng-content>  -->
+        <app-student-item [studentIndex]="i">
+          <span>{{ student }}</span>
+          <button (click)="deleteStudent(i)" type="button" class="close" aria-label="Close">
+            <span>&times;</span>
+          </button>
+        </app-student-item>
+    </li>
+</ul>
+
+<div class="form-group">
+    <label for="studentName">New student</label>
+    <input type="text" class="form-control" [(ngModel)]="newStudentName" id="studentName" placeholder="Name">
+</div>
+<button (click)="addNewStudent()" class="btn btn-primary">Add</button>
+

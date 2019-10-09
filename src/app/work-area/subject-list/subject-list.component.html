@@ -1,0 +1,14 @@
+<ul class="list-group">
+    <li *ngFor="let subject of subjects; let i = index" class="list-group-item">
+        <app-subject-item (subjectToDelete)="deleteSubject($event)" [subjectIndex]="i" [subjectName]="subject"></app-subject-item>
+    </li>
+</ul>
+
+<div class="form-group">
+    <label for="subjectName">New subject</label>
+    <!--Usage of local References-->
+    <input #newSubjectInput type="text" class="form-control" id="subjectName" placeholder="Name">
+</div>
+<button (click)="addNewSubject(newSubjectInput)" class="btn btn-primary">Add</button>
+
+
