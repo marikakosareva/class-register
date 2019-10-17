@@ -10,6 +10,8 @@ import { StudentListComponent } from './work-area/student-list/student-list.comp
 import {FormsModule} from '@angular/forms';
 import { StudentItemComponent } from './work-area/student-list/student-item/student-item.component';
 import { SubjectItemComponent } from './work-area/subject-list/subject-item/subject-item.component';
+import {DataService} from './data.service';
+import { RecordsListComponent } from './work-area/records-list/records-list.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +21,15 @@ import { SubjectItemComponent } from './work-area/subject-list/subject-item/subj
     SubjectListComponent,
     StudentListComponent,
     StudentItemComponent,
-    SubjectItemComponent
+    SubjectItemComponent,
+    RecordsListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

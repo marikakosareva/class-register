@@ -1,9 +1,14 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-6">
-            <app-student-list></app-student-list>
+        <div *ngIf="openedBlock === 'students'">
+            <div class="col-sm-6">
+                <app-student-list></app-student-list>
+            </div>
+            <div class="col-sm-6">
+              <app-records-list></app-records-list>
+            </div>
         </div>
-        <div class="col-sm-6">
+        <div *ngIf="openedBlock === 'subjects'" class="col-sm-6">
             <app-subject-list></app-subject-list>
         </div>
     </div>

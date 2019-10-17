@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-work-area',
@@ -6,12 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./work-area.component.css']
 })
 export class WorkAreaComponent implements OnInit {
-
+  @Input() openedBlock: string;
   collapsed = true;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }

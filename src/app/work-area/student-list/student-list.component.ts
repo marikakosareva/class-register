@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from '../../data.service';
+import {Student} from '../../student';
 
 @Component({
   selector: 'app-student-list',
@@ -6,21 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
-  students: string[] = ['Smith', 'Williams', 'Wilson'];
+  students: Student[] = [];
   newStudentName = '';
 
-  constructor() { }
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
+    this.students = this.dataService.students;
   }
 
   addNewStudent() {
-    this.students.push(this.newStudentName);
+    this.dataService.addStudent(this.newStudentName);
     this.newStudentName = '';
   }
 
   deleteStudent(index) {
-    this.students.splice(index, 1);
+    this.dataService.deleteStudent(index);
   }
 
+  selectStudent(student) {
+    this.dataService.studentSelected.emit(student);
+  }
 }

@@ -1,0 +1,14 @@
+
+<div *ngIf="selectedStudent; else infoText">
+    <ul class="list-group ">
+        <li *ngFor="let subject of subjects; let i = index" class="list-group-item">
+          <div style="display: flex; justify-content: space-between;">
+            <span>{{ subject }}</span>
+            <input [(ngModel)]="selectedStudent.records[subject]">
+          </div>
+        </li>
+    </ul>
+</div>
+<ng-template #infoText>
+    <p>Please select a student!</p>
+</ng-template>

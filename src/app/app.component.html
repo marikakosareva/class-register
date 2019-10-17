@@ -1,4 +1,3 @@
-<app-header></app-header>
-
-<app-work-area></app-work-area>
+<app-header (selectedPage)="onNavigate($event)"></app-header>
+<app-work-area [openedBlock]="navigation"></app-work-area>
 
