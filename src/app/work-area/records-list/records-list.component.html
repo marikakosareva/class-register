@@ -4,7 +4,7 @@
         <li *ngFor="let subject of subjects; let i = index" class="list-group-item">
           <div style="display: flex; justify-content: space-between;">
             <span>{{ subject }}</span>
-            <input [(ngModel)]="selectedStudent.records[subject]">
+            <input [disabled]="authService.role !== 'admin' && authService.role !== 'teacher'" [(ngModel)]="selectedStudent.records[subject]">
           </div>
         </li>
     </ul>

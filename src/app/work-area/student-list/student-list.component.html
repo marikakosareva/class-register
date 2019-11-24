@@ -1,19 +1,23 @@
 
-<ul class="list-group">
-    <li *ngFor="let student of students; let i = index" (click)="selectStudent(student)" class="list-group-item">
-      <!--  Usage of <ng-content>  -->
-        <app-student-item [studentIndex]="i">
-          <span>{{ student.name }}</span>
-          <button (click)="deleteStudent(i)" type="button" class="close" aria-label="Close">
-            <span>&times;</span>
-          </button>
-        </app-student-item>
-    </li>
-</ul>
+<div class="col-sm-6">
+    <ul class="list-group">
+        <li *ngFor="let student of students; let i = index" (click)="selectStudent(student, i)" class="list-group-item">
+          <!--  Usage of <ng-content>  -->
+            <app-student-item [studentIndex]="i">
+              <span>{{ student.name }}</span>
+              <button (click)="deleteStudent(i)" type="button" class="close" aria-label="Close">
+                <span>&times;</span>
+              </button>
+            </app-student-item>
+        </li>
+    </ul>
 
-<div class="form-group">
-    <label for="studentName">New student</label>
-    <input type="text" class="form-control" [(ngModel)]="newStudentName" id="studentName" placeholder="Name">
+    <div *ngIf="authService.role === 'admin' || authService.role === 'teacher'" class="form-group">
+        <label for="studentName">New student</label>
+        <input type="text" class="form-control" [(ngModel)]="newStudentName" id="studentName" placeholder="Name">
+    </div>
+    <button *ngIf="authService.role === 'admin' || authService.role === 'teacher'" (click)="addNewStudent()" class="btn btn-primary">Add</button>
 </div>
-<button (click)="addNewStudent()" class="btn btn-primary">Add</button>
-
+<div class="col-sm-6">
+    <app-records-list></app-records-list>
+</div>

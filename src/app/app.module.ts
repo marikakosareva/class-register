@@ -12,6 +12,8 @@ import { StudentItemComponent } from './work-area/student-list/student-item/stud
 import { SubjectItemComponent } from './work-area/subject-list/subject-item/subject-item.component';
 import {DataService} from './data.service';
 import { RecordsListComponent } from './work-area/records-list/records-list.component';
+import { AuthComponent } from './auth/auth/auth.component';
+import {AuthService} from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -22,14 +24,17 @@ import { RecordsListComponent } from './work-area/records-list/records-list.comp
     StudentListComponent,
     StudentItemComponent,
     SubjectItemComponent,
-    RecordsListComponent
+    RecordsListComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [DataService],
+  providers: [DataService,
+              AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

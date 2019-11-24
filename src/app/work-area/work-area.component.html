@@ -1,15 +1,5 @@
 <div class="container">
     <div class="row">
-        <div *ngIf="openedBlock === 'students'">
-            <div class="col-sm-6">
-                <app-student-list></app-student-list>
-            </div>
-            <div class="col-sm-6">
-              <app-records-list></app-records-list>
-            </div>
-        </div>
-        <div *ngIf="openedBlock === 'subjects'" class="col-sm-6">
-            <app-subject-list></app-subject-list>
-        </div>
+        <router-outlet></router-outlet>
     </div>
 </div>

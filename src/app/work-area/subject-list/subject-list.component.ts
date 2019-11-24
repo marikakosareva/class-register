@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {DataService} from '../../data.service';
+import {AuthService} from '../../auth/auth.service';
 
 @Component({
   selector: 'app-subject-list',
@@ -10,7 +11,7 @@ export class SubjectListComponent implements OnInit {
   subjects: string[] = [];
   @ViewChild('newSubjectInput', {static: true}) nsInput;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private authService: AuthService) { }
 
   ngOnInit() {
     this.subjects = this.dataService.subjects;

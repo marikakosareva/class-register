@@ -9,6 +9,8 @@ export class AppComponent {
   title = 'class-register';
   navigation = 'students';
 
+
+
   onNavigate(selectedPage: string) {
     this.navigation = selectedPage;
   }
